@@ -1,10 +1,10 @@
-#INVOICE
+# INVOICE
 
 composer install
 
 npm install
 
-###Create .env.local file content:
+### Create .env.local file content:
 
 KERNEL_CLASS='App\Kernel'
 
@@ -17,11 +17,11 @@ PANTHER_APP_ENV=panther
 DATABASE_URL=mysql://talip:8057960623@127.0.0.1:3306/invoice?serverVersion=5.7
 
 
-###php bin/console doctrine:database:create
+### php bin/console doctrine:database:create
 
-###php bin/console doc:mig:mig
+### php bin/console doc:mig:mig
 
-###npm run watch
+### npm run watch
 
-##Start the project on 8000 port
-###php -S localhost:8000 -t public/
+## Start the project on 8000 port
+### php -S localhost:8000 -t public/
