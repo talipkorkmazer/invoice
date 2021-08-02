@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create User{% endblock %}
+{% block body %}
+    <a href="{{ path('invoice.index') }}" class="btn btn-primary">Back</a>
+
+    {{ form_start(invoice_create_form, {'attr': {'id': 'create_invoice_form'}}) }}
+    {{ form(invoice_create_form) }}
+    {{ form_end(invoice_create_form) }}
+
+    <script>
+        const unitPriceElement = document.querySelector('#invoice_unit_price');
+        const quantityElement = document.querySelector('#invoice_quantity');
+        const totalElement = document.querySelector('#invoice_total');
+
+        unitPriceElement.addEventListener('focus', (event) => {
+            const unitPriceValue = unitPriceElement.value
+            const quantityValue = quantityElement.value.split(' ')[0];
+            totalElement.value = parseFloat(unitPriceValue) * parseInt(quantityValue);
+        });
+
+        unitPriceElement.addEventListener('blur', (event) => {
+            const unitPriceValue = unitPriceElement.value
+            const quantityValue = quantityElement.value.split(' ')[0];
+            totalElement.value = parseFloat(unitPriceValue) * parseInt(quantityValue);
+        });
+
+        unitPriceElement.addEventListener('keyup', (event) => {
+            const unitPriceValue = unitPriceElement.value
+            const quantityValue = quantityElement.value.split(' ')[0];
+            totalElement.value = parseFloat(unitPriceValue) * parseInt(quantityValue);
+        });
+    </script>
+{% endblock %}
+
+

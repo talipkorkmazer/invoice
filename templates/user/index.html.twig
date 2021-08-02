@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('user.create') }}" class="btn btn-primary">Create</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Tax Office</th>
+            <th scope="col">Tax ID</th>
+            <th scope="col">ID No</th>
+            <th scope="col">Address</th>
+            <th scope="col">Postal Code</th>
+            <th scope="col">Bank</th>
+            <th scope="col">IBAN</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.taxOffice }}</td>
+                <td>{{ user.taxId }}</td>
+                <td>{{ user.idNo }}</td>
+                <td>{{ user.address }}</td>
+                <td>{{ user.postalCode }}</td>
+                <td>{{ user.bank }}</td>
+                <td>{{ user.iban }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <a href="{{ path('user.edit', {'id': user.id}) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ path('user.delete', {'id': user.id}) }}" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

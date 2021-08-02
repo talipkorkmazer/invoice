@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <a href="{{ path('invoice.create') }}" class="btn btn-primary">Create</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Invoice No</th>
+            <th scope="col">Invoice Date</th>
+            <th scope="col">Service</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit Price</th>
+            <th scope="col">Currency</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for invoice in invoices %}
+            <tr>
+                <td>{{ invoice.id }}</td>
+                <td>{{ invoice.invoiceNo }}</td>
+                <td>{{ invoice.invoiceDate|date("Y-M-d") }}</td>
+                <td>{{ invoice.service }}</td>
+                <td>{{ invoice.quantity }}</td>
+                <td>{{ invoice.unitPrice }}</td>
+                <td>{{ invoice.currency }}</td>
+                <td>{{ invoice.total }}</td>
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <a href="{{ path('invoice.show', {'id': invoice.id}) }}" class="btn btn-primary">Show</a>
+                        <a href="{{ path('invoice.edit', {'id': invoice.id}) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ path('invoice.delete', {'id': invoice.id}) }}" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

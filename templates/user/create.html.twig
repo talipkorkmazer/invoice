@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create User{% endblock %}
+{% block body %}
+    <a href="{{ path('user.index') }}" class="btn btn-primary">Back</a>
+
+    {{ form_start(user_create_form, {'attr': {'id': 'create_user_form'}}) }}
+    {{ form(user_create_form) }}
+    {{ form_end(user_create_form) }}
+{% endblock %}
+
+
