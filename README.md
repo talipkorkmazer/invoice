@@ -14,7 +14,7 @@ SYMFONY_DEPRECATIONS_HELPER=999999
 
 PANTHER_APP_ENV=panther
 
-DATABASE_URL=mysql://talip:8057960623@127.0.0.1:3306/invoice?serverVersion=5.7
+DATABASE_URL=mysql://talip:pass@127.0.0.1:3306/invoice?serverVersion=5.7
 
 
 ### php bin/console doctrine:database:create
