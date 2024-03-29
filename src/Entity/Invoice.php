@@ -62,6 +62,11 @@ class Invoice
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="invoices")
+     */
+    private $company;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -168,6 +173,18 @@ class Invoice
         return $this;
     }
 
+    public function getCompany()
+    {
+        return $this->company;
+    }
+
+    public function setCompany($company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
     public function getTotal()
     {
         return $this->total;
@@ -177,6 +194,4 @@ class Invoice
     {
         $this->total = $total;
     }
-
-
 }

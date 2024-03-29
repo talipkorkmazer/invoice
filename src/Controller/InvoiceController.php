@@ -32,7 +32,7 @@ class InvoiceController extends AbstractController
      */
     public function index(): Response
     {
-        $invoices = $this->invoiceRepository->findAll();
+        $invoices = $this->invoiceRepository->findWithCompany();
 
         return $this->render(
             'invoice/index.html.twig',

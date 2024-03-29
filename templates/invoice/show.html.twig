@@ -675,7 +675,7 @@
                 <table width="100%" border="0" align="center">
                     <tbody>
                     <tr align="left">
-                        <td align="left">{{ invoice.user.name }}<br></td>
+                        <td align="left">{% if invoice.company.id == 2 %} Talip Can Korkmazer {% else %} Aysun Korkmazer {% endif %}<br></td>
                     </tr>
                     <tr align="left">
                         <td align="left">Phone: {{ invoice.user.phone }}</td>
@@ -745,15 +745,15 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td align="left" style="width:469px; ">INTERIOR OVERSTOCK B.V.<br></td>
+                                    <td align="left" style="width:469px; ">{{ invoice.company.name }}<br></td>
                                 </tr>
                                 <tr>
                                     <td align="left" style="width:469px; ">
-                                        Laan van Kronenburg, 1183 AS, Amstelveen Nederland
+                                        {{ invoice.company.address }}
                                     </td>
                                 </tr>
                                 <tr align="left">
-                                    <td>Website:</td>
+                                    <td>Website: {{ invoice.company.website }}</td>
                                 </tr>
                                 <tr align="left">
                                     <td>E-mail:</td>
@@ -790,6 +790,10 @@
                     <tr style="height:13px; ">
                         <td align="left"><span style="font-weight:bold; ">Invoice Date:</span></td>
                         <td align="left">{{ invoice.invoiceDate|date("Y-M-d") }}</td>
+                    </tr>
+                    <tr style="height:13px; ">
+                        <td align="left"><span style="font-weight:bold; ">Due Date:</span></td>
+                        <td align="left">{{ invoice.invoiceDate|date_modify("+10 day")|date("Y-M-d") }}</td>
                     </tr>
                     </tbody>
                 </table>

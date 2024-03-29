@@ -27,6 +27,26 @@ class Company
      */
     private $address;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $website;
+
+    /**
+     * @return mixed
+     */
+    public function getWebsite()
+    {
+        return $this->website;
+    }
+
+    /**
+     * @param  mixed  $website
+     */
+    public function setWebsite($website): void
+    {
+        $this->website = $website;
+    }
 
     /**
      * @return integer|null

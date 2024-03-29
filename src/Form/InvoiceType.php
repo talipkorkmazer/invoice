@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Company;
 use App\Entity\Invoice;
 use App\Entity\User;
 use Doctrine\DBAL\Types\IntegerType;
@@ -38,6 +39,14 @@ class InvoiceType extends AbstractType
                 EntityType::class,
                 [
                     'class' => User::class,
+                    'choice_label' => 'name',
+                ]
+            )
+            ->add(
+                'company',
+                EntityType::class,
+                [
+                    'class' => Company::class,
                     'choice_label' => 'name',
                 ]
             )
